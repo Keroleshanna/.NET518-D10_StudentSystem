@@ -16,23 +16,23 @@ namespace P01_StudentSystem.Data
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer("Server=.;Database=StudentSystem;Trusted_Connection=True;TrustServerCertificate=True;");
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<StudentCourse>()
-                .HasKey(sc => new { sc.StudentId, sc.CourseId });
-
-            modelBuilder.Entity<StudentCourse>()
-                .HasOne(sc => sc.Student)
-                .WithMany(s => s.StudentCourses)
-                .HasForeignKey(sc => sc.StudentId);
-
-            modelBuilder.Entity<StudentCourse>()
-                .HasOne(sc => sc.Course)
-                .WithMany(c => c.StudentCourses)
-                .HasForeignKey(sc => sc.CourseId);
-
-        }
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     base.OnModelCreating(modelBuilder);
+           
+        //     modelBuilder.Entity<StudentCourse>()
+        //         .HasKey(sc => new { sc.StudentId, sc.CourseId });
+           
+        //     modelBuilder.Entity<StudentCourse>()
+        //         .HasOne(sc => sc.Student)
+        //         .WithMany(s => s.StudentCourses)
+        //         .HasForeignKey(sc => sc.StudentId);
+           
+        //     modelBuilder.Entity<StudentCourse>()
+        //         .HasOne(sc => sc.Course)
+        //         .WithMany(c => c.StudentCourses)
+        //         .HasForeignKey(sc => sc.CourseId);
+           
+        // }
     }
 }

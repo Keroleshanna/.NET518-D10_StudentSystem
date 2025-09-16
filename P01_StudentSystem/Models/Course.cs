@@ -7,13 +7,15 @@ namespace P01_StudentSystem.Models
     {
         public int CourseId { get; set; }
         [MaxLength(80)]
-        [Unicode]
+        [Unicode(true)]
         public string Name { get; set; }
-        [Unicode]
+        [Unicode(false)]
         public string? Description { get; set; }
         public DateOnly StartDate { get; set; }
         public DateOnly EndDate { get; set; }
         public int Price { get; set; }
+
+
         public List<StudentCourse> StudentCourses { get; set; }
 
         public List<Resource> resources { get; set; }

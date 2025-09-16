@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace P01_StudentSystem.Models
 {
@@ -15,9 +11,13 @@ namespace P01_StudentSystem.Models
     internal class HomeWork
     {
         public int HomeWorkId { get; set; }
-        public string Content { get; set; }
+        [Unicode(false)]
+        public string Content { get; set; } 
         public ContentType ContentType { get; set; }
         public DateTime SubmissionTime { get; set; }
+
+
+
 
         public int CourseId { get; set; }
         public Course Course { get; set; }

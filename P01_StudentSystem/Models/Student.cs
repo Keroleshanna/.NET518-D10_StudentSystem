@@ -8,10 +8,11 @@ namespace P01_StudentSystem.Models
         public int StudentId { get; set; }
         
         [MaxLength(100)]
-        [Unicode]
+        [Unicode(true)]
         public string Name { get; set; }
 
         [StringLength(10, MinimumLength = 10)]
+        [Unicode(false)]
         public string? PhoneNumber { get; set; }
         public DateTime RegisteredOn { get; set; }
         public DateOnly? Birthday { get; set; }

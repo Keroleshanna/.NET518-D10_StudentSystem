@@ -23,24 +23,45 @@ namespace P02_SalesDatabase.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Product>()
                 .Property(e => e.Name)
                 .HasMaxLength(50)
                 .IsUnicode(true);
 
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.Quantity)
+                .HasColumnType("decimal(18,2)");
+
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.Description)
+                .HasMaxLength(250)
+                .HasDefaultValue("No description");
+
+
             modelBuilder.Entity<Customer>()
-                .Property(e=> e.Name)
+                .Property(e => e.Name)
                 .HasMaxLength(100)
                 .IsUnicode(true);
 
+
             modelBuilder.Entity<Customer>()
                 .Property(e => e.Email)
-                .HasMaxLength(80);
+                .HasMaxLength(80)
+                .IsUnicode(false);
+
 
             modelBuilder.Entity<Store>()
-                .Property(e=>e.Name)
+                .Property(e => e.Name)
                 .HasMaxLength(80)
                 .IsUnicode(true);
+
+
+            modelBuilder.Entity<Sale>()
+                .Property(e => e.Date)
+                .HasDefaultValueSql("GETDATE()");
 
         }
 
